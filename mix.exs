@@ -1,12 +1,13 @@
-defmodule Attitudes.MixProject do
+defmodule Attitude.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :attitudes,
+      app: :attitude,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      consolidate_protocols: Mix.env() != :test,
       deps: deps()
     ]
   end
