@@ -1,21 +1,20 @@
 # Attitude
+Attitude is a small framework letting you track how your data behave.
 
-**TODO: Add description**
+```elixir
+if Attitude.match?(user, [:updated_address, :live_in_france, :has_bought_at_lest_once]) do
+  UserNotifier.deliver_welcome_france_discount()
+end
+```
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `attitude` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:attitude, "~> 0.1.0"}
+    {:attitude, "https://github.com/nutshell-lab/attitude.git"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/attitude](https://hexdocs.pm/attitude).
 
