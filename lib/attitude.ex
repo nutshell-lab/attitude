@@ -35,11 +35,11 @@ defmodule Attitude do
 
   ## Example
 
-    iex> if Attitude.match?(user, [:updated_home_address, :live_in_france, :has_bought_at_least_once]), do: UserNotifier.deliver_welcome_in_france_discount(user)
+    iex> observed_attitudes = Attitude.attitudes(user)
+    iex> if Attitude.match?(observed_attitudes, [:updated_home_address, :live_in_france, :has_bought_at_least_once]), do: UserNotifier.deliver_welcome_in_france_discount(user)
     :sent
   """
-  def match?(trackable, expected_attitudes) do
-    observed_attitudes = Trackable.track_attitudes(trackable)
+  def match?(observed_attitudes, expected_attitudes) do
     matching_attitudes = Enum.filter(expected_attitudes, &Enum.member?(observed_attitudes, &1))
 
     matching_attitudes == expected_attitudes

@@ -15,6 +15,8 @@ defmodule AttitudeTest do
       end
     end
 
-    assert Attitude.match?("brief bbq", [:less_than_10_chars, :contains_bbq])
+    assert "brief bbq"
+           |> Attitude.attitudes()
+           |> Attitude.match?([:less_than_10_chars, :contains_bbq])
   end
 end
