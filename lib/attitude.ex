@@ -44,4 +44,10 @@ defmodule Attitude do
 
     matching_attitudes == expected_attitudes
   end
+
+  def match?(observed_attitudes, expected_attitudes, matching_fn) do
+    matching_attitudes = Enum.filter(expected_attitudes, &matching_fn.(observed_attitudes, &1))
+
+    matching_attitudes == expected_attitudes
+  end
 end
